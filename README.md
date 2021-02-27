@@ -2,7 +2,7 @@
 
 > Description
 
-## The enryption used in the hybrid MODEL:
+## The encryption used in the hybrid MODEL:
 * AES **(Advanced Encryption Standard)** 
 * DES **(Data Encryption Standard)**
 * RC4 **(Rivest Cipher 4)**
