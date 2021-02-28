@@ -5,7 +5,7 @@
 ## The encryption used in the hybrid MODEL:
 * AES **(Advanced Encryption Standard)** 
 * DES **(Data Encryption Standard)**
-* RC4 **(Rivest Cipher 4)**
+* RC4 **(Rivest Cipher 4)** not sure about this one now will update this as soon as possible.
 
 ## For key exchange:
 * Steganography
