@@ -3,6 +3,7 @@ from AESfile import AESCipher
 from DESfile import DESCipher
 from RC4file import RC4Cipher
 from videotobase64 import mp4ToBase64
+from base64 import b64encode, b64decode
 
 def encrypt_text(file, key):
     ss = file.read()
@@ -22,5 +23,17 @@ def decrypt_text(file1, file2, key):
     b = DESCipher(key)
     return a.decrypt(file1.read()) + b.decrypt(file2.read())
 
+def encrypt_video(file, key):
+    x = file.read()
+    hex_str = x.hex()
+    a = AESCipher(key)
+    b = DESCipher(key)
+    p1 = a.encrypt(hex_str[0:len(hex_str) // 2])
+    p2 = b.encrypt(hex_str[len(hex_str) // 2:])
+    s = a.decrypt(p1) + b.decrypt(p2)
+    f = open('output.mp4', 'wb')
+    f.write(bytes.fromhex(s))
+
+
 if __name__ == '__main__':
-    print(decrypt_text(open('files\\file1.txt', 'r'), open('files\\file2.txt', 'r'), 'password'))
+    encrypt_video(open('video file.mp4', 'rb'), 'password')    

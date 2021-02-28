@@ -33,4 +33,10 @@ class RC4Cipher:
 			cipher += str("%02X" % (ord(i) ^ z.__next__()))
 		return cipher
 
-	# decryption is not working still have to figure that out.
+	def decrypt(self, cipher, a):
+		l = a.KSA()
+		z = a.PRGA(l)
+		plaintext = ''
+		for i in cipher:
+			plaintext += str("%02X" % (ord(i) ^ z.__next__()))
+		return plaintext
