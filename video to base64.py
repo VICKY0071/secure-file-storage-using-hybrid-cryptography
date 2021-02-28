@@ -11,8 +11,3 @@ class mp4ToBase64:
 		file = open('output_video.mp4', 'wb')
 		file.write(base64.b64decode(t))
 		file.close()
-
-
-x = mp4ToBase64(open('video file.mp4', 'rb'))
-
-x.to_mp4(x.to_64())
