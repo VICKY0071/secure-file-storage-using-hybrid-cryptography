@@ -1,7 +1,7 @@
 import os, sys
 from AESfile import AESCipher
 from DESfile import DESCipher
-from RC4file import RC4Cipher
+# from RC4file import RC4Cipher
 from videotobase64 import mp4ToBase64
 from base64 import b64encode, b64decode
 
@@ -30,9 +30,12 @@ def encrypt_video(file, key):
     b = DESCipher(key)
     p1 = a.encrypt(hex_str[0:len(hex_str) // 2])
     p2 = b.encrypt(hex_str[len(hex_str) // 2:])
-    s = a.decrypt(p1) + b.decrypt(p2)
-    f = open('output.mp4', 'wb')
-    f.write(bytes.fromhex(s))
+    f1 = open('files/part1.txt', 'w')
+    f2 = open('files/part2.txt', 'w')
+    f1.write(p1)
+    f2.write(p2)
+    # f = open('files/output.mp4', 'wb')
+    # f.write(bytes.fromhex(s))
 
 
 if __name__ == '__main__':
