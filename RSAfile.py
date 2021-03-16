@@ -1,3 +1,4 @@
+import hashlib
 from Crypto.PublicKey import RSA
 from Crypto.Cipher import PKCS1_OAEP
 from Crypto.Signature import PKCS1_v1_5
@@ -61,12 +62,3 @@ class RSACipher:
 
 if __name__ == '__main__':
 	a = RSACipher()
-	pub, pri = a.newkeys(1024)
-	cipher = a.encrypt(bytes('Vikas is here', 'utf-8'), pub)
-	# print(cipher)
-	message = a.decrypt(cipher, pri);
-	print(message.decode('utf-8'))
-	sign = a.sign(bytes('Vikas is here', 'utf-8'), pri)
-	print(sign)
-	ver = a.verify(bytes('Vikas is here', 'utf-8'), sign, pub)
-	print(ver)
